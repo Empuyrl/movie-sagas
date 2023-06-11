@@ -20,9 +20,16 @@ const genres = (state = [], action) => {
     }
 }
 
+const movieDetails = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_DETAILS':
+            return action.payload;
+        default:
+            return state;
+    }
+}
 
 
-
-const _rootReducer = combineReducers({movies, genres });
+const _rootReducer = combineReducers({movies, genres, movieDetails });
 
 export default _rootReducer;
