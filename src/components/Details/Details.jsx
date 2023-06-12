@@ -6,12 +6,14 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
 function Details() {
+    //access history to handle navigation on the app
     const history = useHistory();
     const dispatch = useDispatch();
+    //access the detials from the store
     const movieDetails = useSelector(store => store.movieDetails);
 
     console.log('movie details,', movieDetails[0]);
-
+//function to return back to the movie list page
     const onGoBack = () => {
         history.push('/');
     }
@@ -21,6 +23,10 @@ function Details() {
         <div>
             <Typography variant="h4" gutterBottom>Details Page</Typography>
             <div>
+                 {/* Map over the movieDetails array and render details for each movie 
+                 specifying detials of the image size, then displays the asked for info
+                 in paragraph tags, join allows for multiple genres to be targeted
+                 while description handles the details of the movie*/}
                  {movieDetails.map(details => (
                       <div key={details.id}>
                         <h3>{details.title}</h3>
@@ -30,6 +36,7 @@ function Details() {
                     </div>
                 )) }
             </div>
+             {/* Button to navigate back to the movie list page */}
             <button onClick={onGoBack}>Back To List</button>
         </div>
     );
