@@ -3,9 +3,7 @@ import './App.css';
 import MovieList from '../MovieList/MovieList';
 import Details from '../Details/Details';
 import AddMovie from '../AddMovie/AddMovie';
-// Material UI
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+
 
 //main component, renders the entire app
 function App() {
