@@ -1,3 +1,6 @@
+//imports everything needed in order to run the project
+//store, middleware, logger for problems
+//all of the reducers and sagas
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -17,13 +20,17 @@ const sagaMiddleware = createSagaMiddleware();
 // Create one store that all components can use
 const storeInstance = createStore(
     // Add sagaMiddleware to our store
+    //Add all reducers and the logger as well
     _rootReducer,
     applyMiddleware(sagaMiddleware, logger),
 );
 
 // Pass rootSaga into our sagaMiddleware
+//allows the sagas to listen and response to dispatches
 sagaMiddleware.run(_rootSaga);
 
+//mounts everything to the root
+//provider wraps the store to allow use of redux in the store
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={storeInstance}>

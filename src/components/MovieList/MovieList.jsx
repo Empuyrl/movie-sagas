@@ -33,6 +33,7 @@ function MovieList() {
             <Grid container spacing={5} className="movies">
                 {movies.map(movie => (
                     // implemented grid to make page responsive
+                    //what is being mapped is mostly moved to the moviespecs component
                     <Grid 
                         item xs={12} md={4} lg={3} 
                         key={movie.id} 

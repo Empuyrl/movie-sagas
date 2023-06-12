@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 
+//define custom styles for the components to use
+//useStyles is how they are accessed across the form
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -17,13 +19,15 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
+//recieves movie as a prop, which represents a single movie
 function MovieItem ({movie}) {
     const classes = useStyles();
     const dispatch = useDispatch();
     const history = useHistory();
 
-    // getting specific details for each movie 
+    // getting specific details for each movie when the poster is clicked
     // takes user to details page
+    //uses history to go to the detail page
     const handleClick = () => {
         dispatch({
             type: 'FETCH_DETAILS',
@@ -34,6 +38,7 @@ function MovieItem ({movie}) {
 
     return (
         // displaying title and movie poster for each movie
+        //gives the elements on the detail page attributes for displaying
         <div>
             <Paper >
                 <Typography variant="h6" gutterBottom>{movie.title}</Typography>

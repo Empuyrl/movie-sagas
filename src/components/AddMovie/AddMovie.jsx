@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button } from '@material-ui/core';
 
+//function to add a movie and gets all the properties we want added
+//empty strings as each movie needs the info filled out to be added
 function AddMovie() {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -16,6 +18,8 @@ function AddMovie() {
     );
       // on submit of form, movie will be sent to sent to DB 
     // user will be taken to home page where movie will show up
+    //prevent is to not allow constant refreshes 
+    //form insures the info needs to be filled out to continue
     const handleSubmit = event => {
         event.preventDefault();
 
@@ -33,6 +37,10 @@ function AddMovie() {
 
     return (
         // inputs capture user input and save them to newMovie object
+        //add each element onChange, required 
+        //shows everything needed for each individual part
+        //genre has cvalues to list each given in the database
+        //dropdown menu
         <div>
             <h1>Add Movies Page!</h1>
             <form onSubmit={handleSubmit}>
